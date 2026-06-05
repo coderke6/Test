@@ -7,44 +7,122 @@
 <title>Laikipia Unisilent</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
 
 body{
 background:#000;
 color:#fff;
+overflow-x:hidden;
 overflow-y:auto;
-padding:40px 15px;
+padding:15px;
 }
 
-.card{
-position:relative;
-max-width:420px;
-margin:auto;
-padding:30px;
+/* LOADER */
+
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999999;
+}
+
+.loader-content{
+text-align:center;
+color:#ff69b4;
+animation:pulse 1.5s infinite;
+}
+
+.loader-content h1{
+font-size:35px;
+margin-bottom:15px;
+}
+
+.loader-content p{
+font-size:18px;
+}
+
+@keyframes pulse{
+0%{opacity:.5;}
+50%{opacity:1;}
+100%{opacity:.5;}
+}
+
+/* HERO */
+
+.hero{
+width:100%;
+max-width:1000px;
+margin:0 auto 20px;
+padding:40px 20px;
+text-align:center;
 border-radius:20px;
 background:rgba(255,255,255,.05);
 border:1px solid #ff69b4;
-box-shadow:0 0 25px #ff69b4;
-text-align:center;
+box-shadow:0 0 25px rgba(255,105,180,.5);
+position:relative;
 overflow:hidden;
 }
 
-.card::after{
+.hero::after{
 content:"Laikipia Unisilent";
 position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-font-size:40px;
-color:rgba(255,105,180,0.08);
+font-size:60px;
+color:rgba(255,105,180,.08);
 pointer-events:none;
+white-space:nowrap;
 }
 
-h1{color:#ff69b4;margin-bottom:20px}
+.hero h1{
+position:relative;
+z-index:2;
+color:#ff69b4;
+font-size:2.2rem;
+margin-bottom:15px;
+}
+
+.hero p{
+position:relative;
+z-index:2;
+font-size:16px;
+line-height:1.7;
+}
+
+/* MESSAGE SECTION */
+
+.message-section{
+width:100%;
+max-width:1000px;
+margin:20px auto;
+padding:25px;
+border-radius:20px;
+background:rgba(255,255,255,.05);
+border:1px solid #ff69b4;
+box-shadow:0 0 25px rgba(255,105,180,.4);
+}
+
+.message-section h2{
+text-align:center;
+color:#ff69b4;
+margin-bottom:20px;
+}
 
 textarea{
 width:100%;
-height:130px;
+height:150px;
 padding:15px;
 border-radius:15px;
 border:1px solid #ff69b4;
@@ -52,79 +130,184 @@ background:#111;
 color:#fff;
 resize:none;
 outline:none;
+font-size:16px;
 }
 
-input[type=file]{
-margin-top:15px;
-color:#fff;
-}
-
-button{
-width:100%;
-margin-top:20px;
-padding:14px;
-border-radius:15px;
-border:none;
-background:#ff69b4;
-color:#000;
-font-weight:bold;
-cursor:pointer;
+textarea:focus{
 box-shadow:0 0 15px #ff69b4;
 }
 
-.status{margin-top:15px;font-size:14px}
-.success{color:#00ff88}
-.error{color:#ff4d4d}
-    .admin-btn{
-  margin-top:12px;
-  background:transparent;
-  color:#ff69b4;
-  border:1px solid #ff69b4;
-  box-shadow:none;
+input[type=file]{
+width:100%;
+margin-top:15px;
+padding:10px;
+border-radius:12px;
+background:#111;
+border:1px solid #ff69b4;
+color:#fff;
 }
+
+/* BUTTONS */
+
+button{
+width:100%;
+margin-top:15px;
+padding:15px;
+border:none;
+border-radius:15px;
+background:#ff69b4;
+color:#000;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
+box-shadow:0 0 15px #ff69b4;
+transition:.3s;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 0 25px #ff69b4;
+}
+
+.admin-btn{
+background:transparent;
+color:#ff69b4;
+border:1px solid #ff69b4;
+box-shadow:none;
+}
+
 .admin-btn:hover{
-  background:#ff69b4;
-  color:#000;
-    }
-    .section{
-margin:60px auto;
-max-width:900px;
-padding:30px;
+background:#ff69b4;
+color:#000;
+}
+
+/* STATUS */
+
+.status{
+margin-top:15px;
+text-align:center;
+font-size:14px;
+}
+
+.success{
+color:#00ff88;
+}
+
+.error{
+color:#ff4d4d;
+}
+
+/* PREMIUM SECTION */
+
+.section{
+width:100%;
+max-width:1000px;
+margin:30px auto;
+}
+
+.section h2{
+color:#ff69b4;
+text-align:center;
+margin-bottom:25px;
+font-size:2rem;
+}
+
+/* ADVERT CARDS */
+
+.advert-card{
+width:100%;
+margin-bottom:30px;
+padding:25px;
 border-radius:20px;
 background:rgba(255,255,255,.05);
 border:1px solid #ff69b4;
 box-shadow:0 0 20px rgba(255,105,180,.4);
+transition:.3s;
 }
 
-.section h2{color:#ff69b4;margin-bottom:15px}
-
-.advert-card{
-margin-top:30px;
-padding:20px;
-border-radius:20px;
-background:rgba(255,255,255,.05);
-border:1px solid #ff69b4;
-box-shadow:0 0 15px rgba(255,105,180,.4);
+.advert-card:hover{
+transform:translateY(-3px);
+box-shadow:0 0 30px rgba(255,105,180,.7);
 }
+
+.advert-card h3{
+color:#ff69b4;
+margin-bottom:15px;
+font-size:1.4rem;
+}
+
+.advert-card p{
+line-height:1.8;
+font-size:15px;
+}
+
+/* ADVERT IMAGES */
 
 .advert-img{
 width:100%;
+display:block;
 border-radius:15px;
 margin-bottom:15px;
 border:1px solid #ff69b4;
 box-shadow:0 0 15px #ff69b4;
 }
 
+/* WHATSAPP BUTTON */
+
 .whatsapp-btn{
 display:inline-block;
 margin-top:15px;
-padding:10px 20px;
+padding:12px 20px;
 border-radius:20px;
 background:#25D366;
 color:#000;
 font-weight:bold;
 text-decoration:none;
-box-shadow:0 0 10px #25D366;
+box-shadow:0 0 12px #25D366;
+transition:.3s;
+}
+
+.whatsapp-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 0 20px #25D366;
+}
+
+/* MARQUEE */
+
+marquee{
+margin-top:15px;
+color:#ff69b4;
+font-weight:bold;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero{
+padding:30px 15px;
+}
+
+.hero h1{
+font-size:1.8rem;
+}
+
+.hero::after{
+font-size:35px;
+}
+
+.message-section,
+.advert-card{
+padding:18px;
+}
+
+.section h2{
+font-size:1.5rem;
+}
+
+button{
+font-size:15px;
+}
     }
 </style>
 </head>
